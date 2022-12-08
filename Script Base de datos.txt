@@ -1,0 +1,74 @@
+
+create database DB_BIBLIOTECA
+
+GO
+
+USE DB_BIBLIOTECA
+
+GO
+
+CREATE TABLE  CATEGORIA(
+IdCategoria int primary key identity(1,1),
+Descripcion varchar(100),
+imagen varchar(max),
+)
+go
+
+CREATE TABLE  AUTOR(
+IdAutor int primary key identity,
+Nombre varchar(100),
+FechaCreacion datetime default getdate()
+)
+go
+
+CREATE TABLE LIBRO(
+IdLibro int primary key identity(1,1),
+IdAutor int references AUTOR(IdAutor),
+IdCategoria int references CATEGORIA(IdCategoria),
+Titulo varchar(100),
+Descripcion varchar(200),
+Imagen varchar(max),
+Estado bit default 1,
+Ejemplares int,
+FechaCreacion datetime default getdate()
+)
+
+GO
+
+CREATE TABLE PERSONA(
+IdPersona int primary key identity(1,1),
+Nombre varchar(100),
+Apellido varchar(100),
+Cedula varchar(11),
+Correo varchar(100),
+Direccion varchar(100),
+FechaCreacion datetime default getdate()
+)
+
+go
+
+CREATE TABLE ESTADO_PRESTAMO(
+IdEstadoPrestamo int primary key identity(1,1),
+Descripcion varchar(100),
+)
+GO
+
+CREATE TABLE PRESTAMO(
+IdPrestamo int primary key identity(1,1),
+IdEstadoPrestamo int references ESTADO_PRESTAMO(IdEstadoPrestamo),
+IdPersona int references PERSONA(IdPersona),
+IdLibro int references Libro(IdLibro),
+FechaEntrega date default getdate(),
+FechaDevolucion date not null,
+)
+
+CREATE TABLE USUARIO(
+IdUsuario int primary key identity(1,1),
+Nombre varchar(100),
+Apellido varchar(100),
+Correo varchar(100),
+Clave varchar(MAX),
+TipoUsuario varchar(50) default 'basico',
+FechaCreacion datetime default getdate()
+)
+
