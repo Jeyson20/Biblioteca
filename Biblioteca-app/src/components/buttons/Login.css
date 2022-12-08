@@ -1,0 +1,30 @@
+.containerPrincipal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid blue;
+  padding: 40px;
+  background-color: white;
+}
+
+.containerPrincipalR {
+position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid blue;
+  padding: 60px;
+  background-color: white;
+}
+.color {
+  background-color: black;
+}
+.imagenDeFondo {
+  background-image: url("https://freepikpsd.com/file/2019/10/exercise-png-Transparent-Images.png");
+  background-color: black;
+  background-size: cover;
+}
+.containerLogin {
+  text-align: center;
+}
